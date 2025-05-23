@@ -73,20 +73,20 @@ NSTUB(MAIN_FIRMWARE_ADDR, firmware_entry)
 # THUMB_FN(0xe058dbc2,  call)                   /* many functions called by name (lv_start, lv_stop etc) */
 
 /** File I/O **/
-# THUMB_FN(0xe057c880, _FIO_OpenFile)
-# THUMB_FN(0xe057c932, _FIO_CreateFile)
-# THUMB_FN(0xe057cd0a, _FIO_ReadFile)
-# THUMB_FN(0xe057cec2, _FIO_WriteFile)
+THUMB_FN(0xe05cbe3c, _FIO_OpenFile)
+THUMB_FN(0xe05cbeee, _FIO_CreateFile)
+THUMB_FN(0xe05cc2c6, _FIO_ReadFile)
+THUMB_FN(0xe05cc45e, _FIO_WriteFile)
 # THUMB_FN(0xe057ce04,  FIO_SeekSkipFile)
-# THUMB_FN(0xe057d0dc,  FIO_CloseFile)
-# THUMB_FN(0xe057e162, _FIO_CreateDirectory)
+THUMB_FN(0xe05cc672,  FIO_CloseFile)
+THUMB_FN(0xe05cccd4, _FIO_CreateDirectory)
 //THUMB_FN(0xE04BD061,  FIO_FindFirst)
-# THUMB_FN(0xe057e5bc, _FIO_FindFirstEx)
-//THUMB_FN(0xE04BD0EF,  FIO_FindNextEx) // SJE this looks like FIO_FindNext to me, not Ex
+THUMB_FN(0xe05cdb50, _FIO_FindFirstEx) // TODO: this may be wrong
+THUMB_FN(0xe05cdc46,  FIO_FindNext)
 # THUMB_FN(0xe057e6be,  FIO_FindNextEx)
 # THUMB_FN(0xe057e780,  FIO_FindClose)
 # THUMB_FN(0xe057d276, _FIO_GetFileSize64)
-# THUMB_FN(0xe057cc72, _FIO_RemoveFile)
+THUMB_FN(0xe05cc22e, _FIO_RemoveFile)
 # THUMB_FN(0xe057dcda, _FIO_RenameFile)
 # THUMB_FN(0xe057e346,  FIO_Flush)               // to be called after FIO_CloseFile?
 
