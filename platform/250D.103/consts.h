@@ -10,7 +10,7 @@
 #define BR_ICACHE_INV_2   0xe00400aa  // second call to icache_invalidate, before cstart
 #define BR_BR_CSTART      0xe00400c0  // D78 cams have an indirect branch to cstart,
                                       // the first of which is absolute; overwrite it
-#define BR_CPU_STUFF      0xe004012a  // A short function that inits some CPU related globals
+// #define BR_CPU_STUFF      0xe004012a  // A short function that inits some CPU related globals
 #define BR_BZERO32        0xe0040152  // called from cstart
 #define BR_CREATE_ITASK   0xe00401b4  // called from cstart
 

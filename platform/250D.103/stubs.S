@@ -31,7 +31,7 @@
 NSTUB(MAIN_FIRMWARE_ADDR, firmware_entry)
 THUMB_FN(0xe00400fc,  cstart)                 /* calls bzero32 and create_init_task(..., init_task, ...) */
 THUMB_FN(0xe05f1b3c,  bzero32)                /* zeros out a data structure */
-# THUMB_FN(0xe02e04bc,  create_init_task)       /* low-level DryOS initialization */
+THUMB_FN(0xe0651388,  create_init_task)       /* low-level DryOS initialization */
 THUMB_FN(0xe0040224,  init_task)              /* USER_MEM size checking, dmSetup, termDriverInit, stdlibSetup etc */
 THUMB_FN(0xe0637db0,  dcache_clean)           /* loop with MCR p15 c7,c10,1; DSB */
 # THUMB_FN(0xe000baf0,  dcache_clean_multicore) /* loop writing to c11007b0, called after dcache_clean by copy_mmu_tables() */
@@ -64,7 +64,7 @@ THUMB_FN(0xe0637e84,  icache_invalidate)      /* loop with MCR p15 c7,c5,1; c7,c
 #THUMB_FN(0xE0693B5B,  free)
 
 /** Debug messages **/
-# THUMB_FN(0xe05a9720,  DryosDebugMsg)          /* lots of debug messages; format string is third argument */
+THUMB_FN(0xe05f0c40,  DryosDebugMsg)          /* lots of debug messages; format string is third argument */
 
 /** DMA **/
 # THUMB_FN(0xe05d6172,  dma_memcpy)
@@ -80,8 +80,9 @@ THUMB_FN(0xe05cc45e, _FIO_WriteFile)
 # THUMB_FN(0xe057ce04,  FIO_SeekSkipFile)
 THUMB_FN(0xe05cc672,  FIO_CloseFile)
 THUMB_FN(0xe05cccd4, _FIO_CreateDirectory)
-//THUMB_FN(0xE04BD061,  FIO_FindFirst)
-THUMB_FN(0xe05cdb50, _FIO_FindFirstEx) // TODO: this may be wrong
+# THUMB_FN(0xe05cdb50, _FIO_FindFirstEx)
+# THUMB_FN(0xe05cdb50, _FIO_FindFirst)
+THUMB_FN(0xe05cdb50, FIO_FindFirstEntry)
 THUMB_FN(0xe05cdc46,  FIO_FindNext)
 # THUMB_FN(0xe057e6be,  FIO_FindNextEx)
 # THUMB_FN(0xe057e780,  FIO_FindClose)
@@ -102,7 +103,7 @@ THUMB_FN(0xe05cc22e, _FIO_RemoveFile)
 # THUMB_FN(0xe0588faa,  CancelTimer)
 # THUMB_FN(0xe03b3c68,  SetHPTimerAfterNow)
 # THUMB_FN(0xe03b3cee,  SetHPTimerNextTick)     /* same "worker" function as SetHPTimerAfterNow */
-# THUMB_FN(0xe0588ef4,  SetTimerAfter)
+THUMB_FN(0xe05cb7b8,  SetTimerAfter)
 # THUMB_FN(0xe070ad32,  CancelDateTimer)
 
 /** Interrupts **/
@@ -144,7 +145,7 @@ THUMB_FN(0xe05cc22e, _FIO_RemoveFile)
 
 // SJE stuff found during investigation, maybe not needed for ML
 // but I wanted to call by name
-# THUMB_FN(0xe03b1d54,  debug_assert) // DRYOS_ASSERT_HANDLER related
+THUMB_FN(0xe066b8b4,  debug_assert) // DRYOS_ASSERT_HANDLER related
 
 // UNSURE or untested
 # THUMB_FN(0xe00bb74e,  get_task_by_id) // called indirectly by task_create and functions using string "TASK Name"
