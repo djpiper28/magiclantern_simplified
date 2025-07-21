@@ -80,16 +80,16 @@ THUMB_FN(0xe05cc45e, _FIO_WriteFile)
 # THUMB_FN(0xe057ce04,  FIO_SeekSkipFile)
 THUMB_FN(0xe05cc672,  FIO_CloseFile)
 THUMB_FN(0xe05cccd4, _FIO_CreateDirectory)
-# THUMB_FN(0xe05cdb50, _FIO_FindFirstEx)
+THUMB_FN(0xe05cdb50, _FIO_FindFirstEx)
 # THUMB_FN(0xe05cdb50, _FIO_FindFirst)
-THUMB_FN(0xe05cdb50, FIO_FindFirstEntry)
+# THUMB_FN(0xe05cdb50, FIO_FindFirstEntry)
 THUMB_FN(0xe05cdc46,  FIO_FindNext)
 # THUMB_FN(0xe057e6be,  FIO_FindNextEx)
 # THUMB_FN(0xe057e780,  FIO_FindClose)
 # THUMB_FN(0xe057d276, _FIO_GetFileSize64)
 THUMB_FN(0xe05cc22e, _FIO_RemoveFile)
 # THUMB_FN(0xe057dcda, _FIO_RenameFile)
-# THUMB_FN(0xe057e346,  FIO_Flush)               // to be called after FIO_CloseFile?
+THUMB_FN(0xe05cd8c6,  FIO_Flush)               // to be called after FIO_CloseFile?
 
 /** GUI **/
 //THUMB_FN(0xE00C5415,  GUI_Control) // Looks missing on 850D, possibly same as R
